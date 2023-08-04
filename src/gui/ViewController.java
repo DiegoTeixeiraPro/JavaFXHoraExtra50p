@@ -30,9 +30,14 @@ public class ViewController implements Initializable {
 	@FXML
 	public void onBtCalculo() {
 		try {
-			double valorSalario = Double.parseDouble(txtValorSalario.getText());
-			double qtdHoras = txtQtdHoras.getText().isEmpty() ? 0 : Double.parseDouble(txtQtdHoras.getText());
-			double qtdMinutos = txtQtdMinutos.getText().isEmpty() ? 0 : Double.parseDouble(txtQtdMinutos.getText());
+			String valorSalarioStr = txtValorSalario.getText().replace(',', '.');
+			double valorSalario = Double.parseDouble(valorSalarioStr);
+
+			String qtdHorasStr = txtQtdHoras.getText().replace(',', '.');
+			double qtdHoras = qtdHorasStr.isEmpty() ? 0 : Double.parseDouble(qtdHorasStr);
+
+			String qtdMinutosStr = txtQtdMinutos.getText().replace(',', '.');
+			double qtdMinutos = qtdMinutosStr.isEmpty() ? 0 : Double.parseDouble(qtdMinutosStr);
 
 			double somaMinutos = qtdHoras * 60 + qtdMinutos;
 			double valorDoMinutoExtra = ((valorSalario / 220) * 1.50) / 60;
