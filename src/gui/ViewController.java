@@ -30,6 +30,8 @@ public class ViewController implements Initializable {
 	private Button btCalculo;
 	@FXML
 	private MenuItem menuItemFechar;
+	@FXML
+	private MenuItem menuItemLimpar;
 
 	@FXML
 	public void onBtCalculo() {
@@ -60,10 +62,21 @@ public class ViewController implements Initializable {
 		Platform.exit();
 	}
 
+	@FXML
+	private void onMenuItemLimparAction(ActionEvent event) {
+		txtValorSalario.clear();
+		txtQtdHoras.clear();
+		txtQtdMinutos.clear();
+		labelResultadoCalculo.setText("");
+	}
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		Constraints.setTextFieldSalario(txtValorSalario);
 		Constraints.setTextField(txtQtdHoras);
 		Constraints.setTextField(txtQtdMinutos);
+
+		menuItemFechar.setOnAction(event -> onMenuItemFecharAction(event));
+		menuItemLimpar.setOnAction(event -> onMenuItemLimparAction(event));
 	}
 }
