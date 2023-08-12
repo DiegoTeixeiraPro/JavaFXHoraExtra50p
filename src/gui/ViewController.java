@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -32,6 +33,8 @@ public class ViewController implements Initializable {
 	private MenuItem menuItemFechar;
 	@FXML
 	private MenuItem menuItemLimpar;
+	@FXML
+	private MenuItem menuItemSobre;
 
 	@FXML
 	public void onBtCalculo() {
@@ -69,6 +72,15 @@ public class ViewController implements Initializable {
 		txtQtdMinutos.clear();
 		labelResultadoCalculo.setText("");
 	}
+	
+    @FXML
+    private void onMenuItemSobreAction(ActionEvent event) {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Sobre");
+        alert.setHeaderText(null);
+        alert.setContentText("Desenvolvido por Diego Teixeira\nGitHub: https://github.com/DiegoTeixeiraPro");
+        alert.showAndWait();
+    }
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
@@ -78,5 +90,7 @@ public class ViewController implements Initializable {
 
 		menuItemFechar.setOnAction(event -> onMenuItemFecharAction(event));
 		menuItemLimpar.setOnAction(event -> onMenuItemLimparAction(event));
+        menuItemSobre.setOnAction(event -> onMenuItemSobreAction(event));
+
 	}
 }
