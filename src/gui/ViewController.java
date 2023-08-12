@@ -5,11 +5,14 @@ import java.util.ResourceBundle;
 
 import gui.util.Alerts;
 import gui.util.Constraints;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 
 public class ViewController implements Initializable {
@@ -23,9 +26,10 @@ public class ViewController implements Initializable {
 
 	@FXML
 	private Label labelResultadoCalculo;
-
 	@FXML
 	private Button btCalculo;
+	@FXML
+	private MenuItem menuItemFechar;
 
 	@FXML
 	public void onBtCalculo() {
@@ -49,6 +53,11 @@ public class ViewController implements Initializable {
 			Alerts.showAlert("Erro", "Erro de validação", "Certifique-se de inserir valores numéricos válidos.",
 					AlertType.ERROR);
 		}
+	}
+
+	@FXML
+	private void onMenuItemFecharAction(ActionEvent event) {
+		Platform.exit();
 	}
 
 	@Override

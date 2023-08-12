@@ -19,7 +19,7 @@
         <menus>
           <Menu mnemonicParsing="false" text="Arquivo">
             <items>
-              <MenuItem mnemonicParsing="false" text="Fechar" />
+              <MenuItem fx:id="menuItemFechar" mnemonicParsing="false" onAction="#onMenuItemFecharAction" text="Fechar" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Editar">
