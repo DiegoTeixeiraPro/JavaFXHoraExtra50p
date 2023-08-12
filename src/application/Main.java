@@ -9,6 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+/**
+ * Programa em JavaFX para o cálculo de hora-extra 50%.
+ *
+ * @author Diego Teixeira
+ * @version 1.0
+ * @since 12/08/2023
+ */
+
 public class Main extends Application {
 
 	@Override
